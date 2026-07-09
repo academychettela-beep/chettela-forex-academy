@@ -123,6 +123,26 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* Adaptive header text: light over the dark hero, dark once the header turns white on scroll */
+        .hdr-title, .hdr-subtitle, .hdr-link, .hdr-ghost-btn, .hdr-menu-icon {
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        .hdr-title { color: #F8FAFC; }
+        .hdr-subtitle { color: #B9C6DA; }
+        .hdr-link { color: #E7ECF3; }
+        .hdr-link:hover { color: #F3E5AB; }
+        .hdr-ghost-btn { color: #F8FAFC; border-color: rgba(248, 250, 252, 0.3); }
+        .hdr-ghost-btn:hover { color: #F3E5AB; border-color: rgba(212, 175, 55, 0.5); }
+        .hdr-menu-icon { color: #F8FAFC; }
+
+        #sticky-header.header-scrolled .hdr-title { color: #081C3A; }
+        #sticky-header.header-scrolled .hdr-subtitle { color: #114B9A; }
+        #sticky-header.header-scrolled .hdr-link { color: #081C3A; }
+        #sticky-header.header-scrolled .hdr-link:hover { color: #1155CC; }
+        #sticky-header.header-scrolled .hdr-ghost-btn { color: #081C3A; border-color: rgba(8, 28, 58, 0.1); }
+        #sticky-header.header-scrolled .hdr-ghost-btn:hover { color: #1155CC; border-color: rgba(17, 85, 204, 0.3); }
+        #sticky-header.header-scrolled .hdr-menu-icon { color: #081C3A; }
     </style>
 </head>
 <body class="antialiased">
@@ -135,40 +155,40 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
             <a href="#" class="flex items-center space-x-3 group">
-                <div class="w-10 h-10 rounded bg-navy-900 border border-gold flex items-center justify-center shadow-gold-glow transition-all duration-300 group-hover:scale-105">
-                    <span class="font-heading font-extrabold text-gold text-lg">C</span>
+                <div class="w-10 h-10 rounded bg-navy-900 border border-gold flex items-center justify-center shadow-gold-glow transition-all duration-300 group-hover:scale-105 overflow-hidden">
+                    <img src="logo.png" alt="Chettela Forex Academy" class="w-full h-full object-contain p-1">
                 </div>
                 <div>
-                    <div class="font-heading font-extrabold text-navy-900 tracking-wider text-base sm:text-lg uppercase flex items-center gap-1.5 leading-none">
+                    <div class="hdr-title font-heading font-extrabold tracking-wider text-base sm:text-lg uppercase flex items-center gap-1.5 leading-none">
                         CHETTELA <span class="text-gold">FOREX</span>
                     </div>
-                    <span class="text-[9px] font-sans font-semibold tracking-[0.25em] text-navy-600 uppercase block">ACADEMY</span>
+                    <span class="hdr-subtitle text-[9px] font-sans font-semibold tracking-[0.25em] uppercase block">ACADEMY</span>
                 </div>
             </a>
 
             <!-- Desktop Nav Menu -->
             <nav class="hidden lg:flex items-center space-x-8">
-                <a href="#why-fail" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal transition-colors">Philosophy</a>
-                <a href="#framework" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal transition-colors">The Framework</a>
-                <a href="#curriculum" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal transition-colors">Syllabus</a>
-                <a href="#mentor" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal transition-colors">Founder</a>
-                <a href="#comparison" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal transition-colors">Why Us</a>
-                <a href="#faq" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal transition-colors">FAQ</a>
+                <a href="#why-fail" class="hdr-link text-xs uppercase tracking-wider font-semibold transition-colors">Philosophy</a>
+                <a href="#framework" class="hdr-link text-xs uppercase tracking-wider font-semibold transition-colors">The Framework</a>
+                <a href="#curriculum" class="hdr-link text-xs uppercase tracking-wider font-semibold transition-colors">Syllabus</a>
+                <a href="#mentor" class="hdr-link text-xs uppercase tracking-wider font-semibold transition-colors">Founder</a>
+                <a href="#comparison" class="hdr-link text-xs uppercase tracking-wider font-semibold transition-colors">Why Us</a>
+                <a href="#faq" class="hdr-link text-xs uppercase tracking-wider font-semibold transition-colors">FAQ</a>
             </nav>
 
             <!-- CTA & Contact buttons -->
             <div class="hidden sm:flex items-center space-x-4">
-                <button onclick="openModal('free-class-modal')" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal border border-navy-900/10 hover:border-royal/30 px-4 py-2.5 rounded transition-all">
+                <button onclick="openModal('free-class-modal')" class="hdr-ghost-btn text-xs uppercase tracking-wider font-semibold border px-4 py-2.5 rounded transition-all">
                     Free Class
                 </button>
-                <button onclick="openModal('enroll-modal')" class="bg-gold hover:bg-gold-dark text-navy-900 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded shadow-lg shadow-gold/20 transition-all duration-300 hover:-translate-y-0.5">
+                <button onclick="openEnrollModal()" class="bg-gold hover:bg-gold-dark text-navy-900 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded shadow-lg shadow-gold/20 transition-all duration-300 hover:-translate-y-0.5">
                     Enroll Now
                 </button>
             </div>
 
 
             <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-btn" class="lg:hidden text-navy-900 focus:outline-none" aria-label="Toggle Menu">
+            <button id="mobile-menu-btn" class="hdr-menu-icon lg:hidden focus:outline-none" aria-label="Toggle Menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -187,7 +207,7 @@
                 <button onclick="openModal('free-class-modal')" class="w-full text-center text-xs uppercase tracking-wider font-bold text-navy-900 border border-navy-900/20 py-3 rounded">
                     Watch Free Class
                 </button>
-                <button onclick="openModal('enroll-modal')" class="w-full text-center bg-gold hover:bg-gold-dark text-navy-900 text-xs font-bold uppercase tracking-wider py-3 rounded shadow">
+                <button onclick="openEnrollModal()" class="w-full text-center bg-gold hover:bg-gold-dark text-navy-900 text-xs font-bold uppercase tracking-wider py-3 rounded shadow">
                     Enroll Now
                 </button>
             </div>
@@ -252,15 +272,35 @@
                             <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-numbers font-bold">CONNECTED</span>
                         </div>
 
-                        <!-- Tickers -->
+                        <!-- Tickers: Live quotes powered by TradingView -->
                         <div class="grid grid-cols-2 gap-3 mb-4 text-xs font-numbers">
-                            <div class="bg-navy-950 border border-slate-800/80 p-2.5 rounded flex justify-between items-center">
-                                <span class="text-slate-400">XAUUSD</span>
-                                <span class="text-emerald-400 font-bold animate-pulse" id="xau-price">1,942.34</span>
+                            <div class="bg-navy-950 border border-slate-800/80 rounded overflow-hidden min-h-[64px]">
+                                <div class="tradingview-widget-container">
+                                    <div class="tradingview-widget-container__widget"></div>
+                                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                                    {
+                                    "symbol": "OANDA:XAUUSD",
+                                    "width": "100%",
+                                    "colorTheme": "dark",
+                                    "isTransparent": true,
+                                    "locale": "en"
+                                    }
+                                    </script>
+                                </div>
                             </div>
-                            <div class="bg-navy-950 border border-slate-800/80 p-2.5 rounded flex justify-between items-center">
-                                <span class="text-slate-400">EURUSD</span>
-                                <span class="text-red-400 font-bold" id="eur-price">1.0845</span>
+                            <div class="bg-navy-950 border border-slate-800/80 rounded overflow-hidden min-h-[64px]">
+                                <div class="tradingview-widget-container">
+                                    <div class="tradingview-widget-container__widget"></div>
+                                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                                    {
+                                    "symbol": "OANDA:EURUSD",
+                                    "width": "100%",
+                                    "colorTheme": "dark",
+                                    "isTransparent": true,
+                                    "locale": "en"
+                                    }
+                                    </script>
+                                </div>
                             </div>
                         </div>
 
@@ -1263,32 +1303,64 @@
                 </p>
             </div>
 
-            <!-- Premium Pricing Box -->
-            <div class="bg-navy-900/80 border border-gold rounded-2xl p-8 sm:p-12 max-w-lg mx-auto shadow-gold-glow reveal">
-                <span class="bg-gold/15 text-gold border border-gold/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">
-                    LIFETIME ACADEMY ACCESS
-                </span>
-                
-                <!-- Pricing Area -->
-                <div class="my-6">
-                    <span class="text-slate-400 line-through text-lg font-numbers font-medium block">$1,499</span>
-                    <span class="text-5xl sm:text-6xl font-numbers font-extrabold text-white mt-1 block">
-                        $499<span class="text-sm font-sans font-normal text-slate-400 uppercase tracking-widest ml-1">USD</span>
+            <!-- Pricing Grid: Basic Intro Course + Lifetime Access -->
+            <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto reveal">
+
+                <!-- Basic Introduction Course -->
+                <div class="bg-navy-900/80 border border-slate-700 rounded-2xl p-8 flex flex-col">
+                    <span class="bg-royal/15 text-royal-light border border-royal/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest self-start">
+                        Introductory Offer
                     </span>
-                    <span class="text-xs text-gold font-semibold uppercase mt-2 block">One-time payment • Lifetime access</span>
+
+                    <div class="my-6">
+                        <span class="text-slate-400 line-through text-lg font-numbers font-medium block">$499</span>
+                        <span class="text-4xl sm:text-5xl font-numbers font-extrabold text-white mt-1 block">
+                            $99<span class="text-sm font-sans font-normal text-slate-400 uppercase tracking-widest ml-1">USD</span>
+                        </span>
+                        <span class="text-xs text-royal-light font-semibold uppercase mt-2 block">One-time payment • Basic course</span>
+                    </div>
+
+                    <ul class="space-y-3.5 text-left text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-6 mb-8 flex-grow">
+                        <li class="flex items-center gap-3"><span class="text-royal-light">✔</span> Volume 0 & 1: Foundations & Price Action</li>
+                        <li class="flex items-center gap-3"><span class="text-royal-light">✔</span> Core Risk Management Principles</li>
+                        <li class="flex items-center gap-3"><span class="text-royal-light">✔</span> Preview Access to Private Community</li>
+                        <li class="flex items-center gap-3"><span class="text-royal-light">✔</span> Upgrade credit applied if you go Lifetime later</li>
+                    </ul>
+
+                    <button onclick="openEnrollModal('Basic Introduction Course')" class="w-full bg-navy-800 hover:bg-navy-700 border border-royal/40 text-white font-heading font-bold uppercase tracking-wider py-4 rounded-xl transition-all duration-300 hover:-translate-y-1">
+                        Start for $99
+                    </button>
                 </div>
 
-                <ul class="space-y-3.5 text-left text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-6 mb-8">
-                    <li class="flex items-center gap-3"><span class="text-gold">✔</span> Complete Academy Coursework (Vols 1–7)</li>
-                    <li class="flex items-center gap-3"><span class="text-gold">✔</span> Permanent Elite Private Community Access</li>
-                    <li class="flex items-center gap-3"><span class="text-gold">✔</span> Interactive Live Q&A Webinars & Reviews</li>
-                    <li class="flex items-center gap-3"><span class="text-gold">✔</span> Comprehensive Certification Review</li>
-                </ul>
+                <!-- Lifetime Academy Access -->
+                <div class="bg-navy-900/80 border border-gold rounded-2xl p-8 flex flex-col shadow-gold-glow relative">
+                    <span class="absolute -top-3 right-6 bg-gold text-navy-950 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+                        Most Popular
+                    </span>
+                    <span class="bg-gold/15 text-gold border border-gold/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest self-start">
+                        Lifetime Academy Access
+                    </span>
 
-                <!-- Button -->
-                <button onclick="openModal('enroll-modal')" class="w-full bg-gold hover:bg-gold-dark text-navy-950 font-heading font-bold uppercase tracking-wider py-4 rounded-xl shadow-gold-glow transition-all duration-300 hover:-translate-y-1">
-                    Enroll Now
-                </button>
+                    <div class="my-6">
+                        <span class="text-slate-400 line-through text-lg font-numbers font-medium block">$1,499</span>
+                        <span class="text-4xl sm:text-5xl font-numbers font-extrabold text-white mt-1 block">
+                            $499<span class="text-sm font-sans font-normal text-slate-400 uppercase tracking-widest ml-1">USD</span>
+                        </span>
+                        <span class="text-xs text-gold font-semibold uppercase mt-2 block">One-time payment • Lifetime access</span>
+                    </div>
+
+                    <ul class="space-y-3.5 text-left text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-6 mb-8 flex-grow">
+                        <li class="flex items-center gap-3"><span class="text-gold">✔</span> Complete Academy Coursework (Vols 1–7)</li>
+                        <li class="flex items-center gap-3"><span class="text-gold">✔</span> Permanent Elite Private Community Access</li>
+                        <li class="flex items-center gap-3"><span class="text-gold">✔</span> Interactive Live Q&A Webinars & Reviews</li>
+                        <li class="flex items-center gap-3"><span class="text-gold">✔</span> Comprehensive Certification Review</li>
+                    </ul>
+
+                    <button onclick="openEnrollModal('Lifetime Academy Access')" class="w-full bg-gold hover:bg-gold-dark text-navy-950 font-heading font-bold uppercase tracking-wider py-4 rounded-xl shadow-gold-glow transition-all duration-300 hover:-translate-y-1">
+                        Enroll Now
+                    </button>
+                </div>
+
             </div>
 
         </div>
@@ -1411,7 +1483,7 @@
                     <p class="text-xs text-slate-400 leading-normal max-w-md text-center sm:text-left">
                         Like what you see? Acquire the entire institutional course curriculum now to achieve true market competency.
                     </p>
-                    <button onclick="closeModal('free-class-modal'); openModal('enroll-modal')" class="bg-gold hover:bg-gold-dark text-navy-950 text-xs font-heading font-bold uppercase tracking-wider px-5 py-3 rounded shadow transition-all block text-center w-full sm:w-auto">
+                    <button onclick="closeModal('free-class-modal'); openEnrollModal('Lifetime Academy Access')" class="bg-gold hover:bg-gold-dark text-navy-950 text-xs font-heading font-bold uppercase tracking-wider px-5 py-3 rounded shadow transition-all block text-center w-full sm:w-auto">
                         Enroll in Academy
                     </button>
                 </div>
@@ -1440,6 +1512,7 @@
                 </p>
 
                 <form id="enroll-form" class="space-y-4" novalidate>
+                    <input type="hidden" id="enroll-course" name="course" value="General Inquiry">
                     <div>
                         <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5" for="enroll-name">Full Name</label>
                         <input type="text" id="enroll-name" name="name" required placeholder="e.g. Ananya Sharma"
@@ -1500,10 +1573,10 @@
             
             // Handle active styling classes on scrolling
             if (window.scrollY > 40) {
-                header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-premium', 'border-navy-900/10');
+                header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-premium', 'border-navy-900/10', 'header-scrolled');
                 header.classList.remove('bg-transparent', 'border-transparent');
             } else {
-                header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-premium', 'border-navy-900/10');
+                header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-premium', 'border-navy-900/10', 'header-scrolled');
                 header.classList.add('bg-transparent', 'border-transparent');
             }
 
@@ -1550,27 +1623,7 @@
 
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-        // LIVE MOVING TICKER VALUES IN DASHBOARD
-        function simulateTickers() {
-            const xauEl = document.getElementById('xau-price');
-            const eurEl = document.getElementById('eur-price');
-            
-            setInterval(() => {
-                // XAUUSD Simulation
-                let xau = parseFloat(xauEl.innerText.replace(/,/g, ''));
-                let changeXau = (Math.random() - 0.48) * 0.45; // Positive bias
-                xau += changeXau;
-                xauEl.innerText = xau.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                xauEl.className = changeXau >= 0 ? "text-emerald-400 font-bold" : "text-red-400 font-bold";
-
-                // EURUSD Simulation
-                let eur = parseFloat(eurEl.innerText);
-                let changeEur = (Math.random() - 0.52) * 0.0002; // Negative bias
-                eur += changeEur;
-                eurEl.innerText = eur.toFixed(4);
-                eurEl.className = changeEur >= 0 ? "text-emerald-400 font-bold" : "text-red-400 font-bold";
-            }, 1400);
-        }
+        // Price ticker values are now live, powered by the TradingView widgets embedded above.
 
         // DYNAMIC POSITION RISK MATRIX ENGINE
         const balanceInput = document.getElementById('calc-balance');
@@ -1787,6 +1840,15 @@
             document.body.classList.add('overflow-hidden');
         }
 
+        // Opens the enrollment modal and tags which offer/course the lead clicked
+        function openEnrollModal(courseName) {
+            const courseField = document.getElementById('enroll-course');
+            if (courseField) {
+                courseField.value = courseName || 'General Inquiry';
+            }
+            openModal('enroll-modal');
+        }
+
         function closeModal(id) {
             const modal = document.getElementById(id);
             modal.classList.add('hidden');
@@ -1865,7 +1927,7 @@
         // ============================================================
         // Paste the Web App URL you get after deploying the Google Apps
         // Script (see setup instructions provided alongside this file).
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxzJJyc8xY1E0tt7w_tNp9Uq5p3XiPgamBWBYhQ2QICliTA-5PITW3d5T1KLI-F29oZ0A/exec";
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxZq2uSDUp4d38IsiVwgxN2-nL4YkpwWS559qWE5QyJRcc4HsjHP30cIPA5Acwr9mJMfQ/exec";
 
         document.getElementById('enroll-form').addEventListener('submit', function (e) {
             e.preventDefault();
@@ -1877,6 +1939,7 @@
             const email = document.getElementById('enroll-email').value.trim();
             const phone = document.getElementById('enroll-phone').value.trim();
             const experience = document.getElementById('enroll-experience').value;
+            const course = document.getElementById('enroll-course').value || 'General Inquiry';
 
             // Basic validation
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -1914,6 +1977,7 @@
                 email: email,
                 phone: phone,
                 experience: experience,
+                course: course,
                 timestamp: new Date().toLocaleString(),
                 source: window.location.href
             };
@@ -1943,9 +2007,6 @@
 
         // STARTUP ROUTINES
         window.onload = function() {
-            // Live candlestick animations
-            simulateTickers();
-            
             // Welcome message toast
             setTimeout(() => {
                 showToast("Welcome to Chettela Forex Academy.", "info");
