@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chettela Forex Academy | Institutional Forex Education</title>
+    
+    <!-- Google Fonts: Montserrat (Headings), Inter (Body), Space Grotesk (Numbers) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            950: '#030C1A',
+                            900: '#081C3A',
+                            800: '#0C2B59',
+                            750: '#103975',
+                            700: '#114B9A',
+                            600: '#1E63C4',
+                        },
+                        royal: {
+                            DEFAULT: '#1155CC',
+                            dark: '#0B3E99',
+                            light: '#4285F4',
+                        },
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            dark: '#AA841B',
+                            light: '#F3E5AB',
+                            soft: 'rgba(212, 175, 55, 0.15)',
+                        },
+                        offwhite: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                        numbers: ['Space Grotesk', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 25px rgba(212, 175, 55, 0.25)',
+                        'blue-glow': '0 0 30px rgba(17, 85, 204, 0.15)',
+                        'premium': '0 20px 40px -15px rgba(8, 28, 58, 0.08)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS styles for smooth rendering & animations -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #081C3A;
+            overflow-x: hidden;
+        }
+        
+        .font-heading {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .font-numbers {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-panel-dark {
+            background: rgba(8, 28, 58, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        /* Animated Grid Overlay */
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(17, 85, 204, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(17, 85, 204, 0.05) 1px, transparent 1px);
+        }
+
+        /* Continuous chart animations */
+        @keyframes subtlePulse {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.05); }
+        }
+
+        .pulse-bg {
+            animation: subtlePulse 8s infinite ease-in-out;
+        }
+        
+        /* Reveal animation styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hide scrollbars but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Sticky Header / Navigation -->
+    <header id="sticky-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent">
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress" class="h-1 bg-gradient-to-r from-royal to-gold w-0 transition-all duration-100"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded bg-navy-900 border border-gold flex items-center justify-center shadow-gold-glow transition-all duration-300 group-hover:scale-105">
+                    <span class="font-heading font-extrabold text-gold text-lg">C</span>
+                </div>
+                <div>
+                    <div class="font-heading font-extrabold text-navy-900 tracking-wider text-base sm:text-lg uppercase flex items-center gap-1.5 leading-none">
+                        CHETTELA <span class="text-gold">FOREX</span>
+                    </div>
+                    <span class="text-[9px] font-sans font-semibold tracking-[0.25em] text-navy-600 uppercase block">ACADEMY</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="#why-fail" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal transition-colors">Philosophy</a>
+                <a href="#framework" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal transition-colors">The Framework</a>
+                <a href="#curriculum" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal transition-colors">Syllabus</a>
+                <a href="#mentor" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal transition-colors">Founder</a>
+                <a href="#comparison" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal transition-colors">Why Us</a>
+                <a href="#faq" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal transition-colors">FAQ</a>
+            </nav>
+
+            <!-- CTA & Contact buttons -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <button onclick="openModal('free-class-modal')" class="text-xs uppercase tracking-wider font-semibold text-navy-900 hover:text-royal border border-navy-900/10 hover:border-royal/30 px-4 py-2.5 rounded transition-all">
+                    Free Class
+                </button>
+                <button onclick="openModal('enroll-modal')" class="bg-gold hover:bg-gold-dark text-navy-900 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded shadow-lg shadow-gold/20 transition-all duration-300 hover:-translate-y-0.5">
+                    Enroll Now
+                </button>
+            </div>
+
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="lg:hidden text-navy-900 focus:outline-none" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-md border-b border-navy-900/10 px-4 pt-4 pb-6 space-y-3 shadow-lg">
+            <a href="#why-fail" class="block text-xs uppercase tracking-wider font-bold text-navy-900 py-2 border-b border-gray-100">Philosophy</a>
+            <a href="#framework" class="block text-xs uppercase tracking-wider font-bold text-navy-900 py-2 border-b border-gray-100">The Framework</a>
+            <a href="#curriculum" class="block text-xs uppercase tracking-wider font-bold text-navy-900 py-2 border-b border-gray-100">Syllabus</a>
+            <a href="#mentor" class="block text-xs uppercase tracking-wider font-bold text-navy-900 py-2 border-b border-gray-100">Founder</a>
+            <a href="#comparison" class="block text-xs uppercase tracking-wider font-bold text-navy-900 py-2 border-b border-gray-100">Why Us</a>
+            <a href="#faq" class="block text-xs uppercase tracking-wider font-bold text-navy-900 py-2">FAQ</a>
+            <div class="pt-4 flex flex-col gap-3">
+                <button onclick="openModal('free-class-modal')" class="w-full text-center text-xs uppercase tracking-wider font-bold text-navy-900 border border-navy-900/20 py-3 rounded">
+                    Watch Free Class
+                </button>
+                <button onclick="openModal('enroll-modal')" class="w-full text-center bg-gold hover:bg-gold-dark text-navy-900 text-xs font-bold uppercase tracking-wider py-3 rounded shadow">
+                    Enroll Now
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-navy-950 pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden text-white grid-bg">
+        <!-- Radial Glow Gradients -->
+        <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-royal/10 rounded-full blur-[150px] pointer-events-none pulse-bg"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[150px] pointer-events-none pulse-bg" style="animation-delay: 3s"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Column: Content -->
+                <div class="lg:col-span-6 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-royal/10 border border-royal/30 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-royal-light">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Institutional-Grade Forex
+                    </div>
+
+                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-none text-white uppercase">
+                        MASTER THE MARKETS.<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-royal-light via-white to-gold">NOT THE HYPE.</span>
+                    </h1>
+
+                    <p class="text-lg text-slate-300 font-sans font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Professional Forex Education for traders who demand absolute consistency over gambling. Learn structural execution, risk modeling, and peak trading psychology.
+                    </p>
+
+                    <!-- Feature Tags -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-y-2.5 gap-x-4 text-xs font-medium text-slate-300">
+                        <span class="flex items-center gap-1.5"><span class="text-gold">✦</span> Price Action Masterclass</span>
+                        <span class="flex items-center gap-1.5"><span class="text-gold">✦</span> Risk Management Architecture</span>
+                        <span class="flex items-center gap-1.5"><span class="text-gold">✦</span> Institutional Order Flow</span>
+                    </div>
+
+                    <!-- Call To Action Buttons -->
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#curriculum" class="bg-gold hover:bg-gold-dark text-navy-950 text-sm font-heading font-bold uppercase tracking-wider px-8 py-4 rounded shadow-gold-glow transition-all duration-300 hover:-translate-y-1 text-center">
+                            Start Learning Today
+                        </a>
+                        <button onclick="openModal('free-class-modal')" class="flex items-center justify-center gap-2.5 bg-navy-900 border border-slate-700 hover:border-gold hover:bg-navy-800 text-sm font-heading font-bold uppercase tracking-wider px-8 py-4 rounded transition-all duration-300 hover:-translate-y-1">
+                            <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            Watch Free Class
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Trading Dashboard -->
+                <div class="lg:col-span-6 relative w-full max-w-xl mx-auto lg:max-w-none">
+                    <!-- Dashboard container with dark luxury design -->
+                    <div class="bg-navy-900/90 border border-slate-800 rounded-xl p-4 sm:p-6 shadow-2xl relative">
+                        <!-- Top status bar -->
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                                <span class="text-xs text-slate-400 font-numbers uppercase tracking-wider ml-2">CHETTELA WORKSTATION v2.4</span>
+                            </div>
+                            <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-numbers font-bold">CONNECTED</span>
+                        </div>
+
+                        <!-- Tickers -->
+                        <div class="grid grid-cols-2 gap-3 mb-4 text-xs font-numbers">
+                            <div class="bg-navy-950 border border-slate-800/80 p-2.5 rounded flex justify-between items-center">
+                                <span class="text-slate-400">XAUUSD</span>
+                                <span class="text-emerald-400 font-bold animate-pulse" id="xau-price">1,942.34</span>
+                            </div>
+                            <div class="bg-navy-950 border border-slate-800/80 p-2.5 rounded flex justify-between items-center">
+                                <span class="text-slate-400">EURUSD</span>
+                                <span class="text-red-400 font-bold" id="eur-price">1.0845</span>
+                            </div>
+                        </div>
+
+                        <!-- Mini simulated candle chart canvas -->
+                        <div class="bg-navy-950 rounded-lg p-3 border border-slate-800/80 mb-4 relative overflow-hidden h-44">
+                            <div class="absolute inset-0 opacity-[0.03] grid-bg"></div>
+                            <!-- Live updates notification -->
+                            <div class="absolute top-2 left-3 flex items-center space-x-1.5 text-[9px] tracking-widest text-slate-400 font-numbers uppercase">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                                <span>LIVE SELECTION STRUCTURE</span>
+                            </div>
+                            <!-- Chart plotting elements -->
+                            <svg class="w-full h-full pt-6 pb-2" viewBox="0 0 400 150" preserveAspectRatio="none">
+                                <!-- Price gridlines -->
+                                <line x1="0" y1="30" x2="400" y2="30" stroke="rgba(255,255,255,0.04)" stroke-dasharray="3"/>
+                                <line x1="0" y1="75" x2="400" y2="75" stroke="rgba(255,255,255,0.04)" stroke-dasharray="3"/>
+                                <line x1="0" y1="120" x2="400" y2="120" stroke="rgba(255,255,255,0.04)" stroke-dasharray="3"/>
+                                
+                                <!-- Equity curve line -->
+                                <path d="M 0 130 Q 80 110 150 90 T 280 40 T 400 15" fill="none" stroke="rgba(212, 175, 55, 0.4)" stroke-width="2"/>
+                                <path d="M 0 130 Q 80 110 150 90 T 280 40 T 400 15 L 400 150 L 0 150 Z" fill="url(#gold-gradient)" opacity="0.05"/>
+
+                                <!-- Def of Gradient -->
+                                <defs>
+                                    <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#D4AF37"/>
+                                        <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <!-- Candlesticks (Moving dynamically) -->
+                                <g id="chart-candles">
+                                    <!-- C1 -->
+                                    <line x1="40" y1="100" x2="40" y2="140" stroke="#ef4444" stroke-width="1.5"/>
+                                    <rect x="36" y="105" width="8" height="25" fill="#ef4444"/>
+                                    <!-- C2 -->
+                                    <line x1="80" y1="90" x2="80" y2="125" stroke="#10b981" stroke-width="1.5"/>
+                                    <rect x="76" y="95" width="8" height="20" fill="#10b981"/>
+                                    <!-- C3 -->
+                                    <line x1="120" y1="70" x2="120" y2="115" stroke="#10b981" stroke-width="1.5"/>
+                                    <rect x="116" y="75" width="8" height="30" fill="#10b981"/>
+                                    <!-- C4 (Active) -->
+                                    <line x1="160" y1="85" x2="160" y2="120" stroke="#ef4444" stroke-width="1.5"/>
+                                    <rect x="156" y="90" width="8" height="20" fill="#ef4444"/>
+                                    <!-- C5 -->
+                                    <line x1="200" y1="50" x2="200" y2="90" stroke="#10b981" stroke-width="1.5"/>
+                                    <rect x="196" y="55" width="8" height="30" fill="#10b981"/>
+                                    <!-- C6 -->
+                                    <line x1="240" y1="40" x2="240" y2="80" stroke="#10b981" stroke-width="1.5"/>
+                                    <rect x="236" y="45" width="8" height="25" fill="#10b981"/>
+                                    <!-- C7 -->
+                                    <line x1="280" y1="30" x2="280" y2="70" stroke="#10b981" stroke-width="1.5"/>
+                                    <rect x="276" y="32" width="8" height="30" fill="#10b981"/>
+                                    <!-- C8 -->
+                                    <line x1="320" y1="35" x2="320" y2="60" stroke="#ef4444" stroke-width="1.5"/>
+                                    <rect x="316" y="40" width="8" height="15" fill="#ef4444"/>
+                                    <!-- C9 (Active Blinking) -->
+                                    <line id="live-candle-line" x1="360" y1="20" x2="360" y2="55" stroke="#10b981" stroke-width="1.5"/>
+                                    <rect id="live-candle-body" x="356" y="24" width="8" height="22" fill="#10b981"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- Bottom panel: Dynamic Interactive Risk Calculator -->
+                        <div class="bg-navy-950 p-4 rounded-lg border border-slate-800/80">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xs uppercase tracking-wider text-gold font-bold flex items-center gap-1.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                                    Risk Sizing Matrix
+                                </span>
+                                <span class="text-[10px] text-slate-400 font-numbers uppercase">Institutional Math</span>
+                            </div>
+
+                            <div class="grid grid-cols-3 gap-2.5 mb-3 text-xs">
+                                <div>
+                                    <label class="text-[10px] uppercase text-slate-400 block mb-1">Balance ($)</label>
+                                    <input type="number" id="calc-balance" value="10000" class="w-full bg-navy-900 border border-slate-700 rounded px-2 py-1.5 font-numbers text-white focus:outline-none focus:border-royal text-center">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] uppercase text-slate-400 block mb-1">Risk (%)</label>
+                                    <input type="number" id="calc-risk" value="1" step="0.5" class="w-full bg-navy-900 border border-slate-700 rounded px-2 py-1.5 font-numbers text-white focus:outline-none focus:border-royal text-center">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] uppercase text-slate-400 block mb-1">Stop (Pips)</label>
+                                    <input type="number" id="calc-stop" value="15" class="w-full bg-navy-900 border border-slate-700 rounded px-2 py-1.5 font-numbers text-white focus:outline-none focus:border-royal text-center">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2 text-center pt-2 border-t border-slate-800/80">
+                                <div class="bg-navy-900 p-2 rounded">
+                                    <span class="text-[10px] uppercase text-slate-400 block">RISK CAPITAL</span>
+                                    <span id="out-capital" class="text-sm font-numbers font-bold text-gold">$100.00</span>
+                                </div>
+                                <div class="bg-navy-900 p-2 rounded">
+                                    <span class="text-[10px] uppercase text-slate-400 block">POSITION (LOTS)</span>
+                                    <span id="out-lots" class="text-sm font-numbers font-bold text-royal-light">0.67 Lots</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Numbers Bar -->
+    <section class="relative bg-white border-y border-slate-200 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center">
+                <div class="space-y-1">
+                    <div class="text-4xl lg:text-5xl font-numbers font-extrabold text-navy-900">10+</div>
+                    <div class="text-xs uppercase tracking-widest font-semibold text-slate-500">Years Market Experience</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="text-4xl lg:text-5xl font-numbers font-extrabold text-navy-900">500+</div>
+                    <div class="text-xs uppercase tracking-widest font-semibold text-slate-500">Hours Educational Content</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="text-4xl lg:text-5xl font-numbers font-extrabold text-navy-900">100+</div>
+                    <div class="text-xs uppercase tracking-widest font-semibold text-slate-500">Trading Concepts</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="text-4xl lg:text-5xl font-numbers font-extrabold text-navy-900">Lifetime</div>
+                    <div class="text-xs uppercase tracking-widest font-semibold text-slate-500">Learning Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Why Most Traders Fail -->
+    <section id="why-fail" class="bg-navy-950 py-24 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-navy-900/40 via-transparent to-navy-950/60 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Headers -->
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-red-400">The Hard Truth</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 tracking-tight uppercase">
+                    WHY 90% OF RETAIL <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-300">TRADERS FAIL</span>
+                </h2>
+                <div class="w-16 h-1 bg-red-500 mx-auto mt-4"></div>
+            </div>
+
+            <!-- Failure Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <!-- Card 1 -->
+                <div class="bg-navy-900/50 border border-slate-800/80 rounded-xl p-6 transition-all duration-300 hover:border-red-500/30 hover:bg-navy-900 group reveal">
+                    <div class="text-3xl mb-4">❌</div>
+                    <h3 class="text-lg font-heading font-bold uppercase text-white mb-2">Emotional Trading</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Operating out of greed and fear. Revenge trading to recover losses with zero reliance on statistical probabilities.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-navy-900/50 border border-slate-800/80 rounded-xl p-6 transition-all duration-300 hover:border-red-500/30 hover:bg-navy-900 group reveal">
+                    <div class="text-3xl mb-4">❌</div>
+                    <h3 class="text-lg font-heading font-bold uppercase text-white mb-2">Over Leverage</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Using insane lot sizes on small accounts trying to double money in a week, risking complete account liquidation.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-navy-900/50 border border-slate-800/80 rounded-xl p-6 transition-all duration-300 hover:border-red-500/30 hover:bg-navy-900 group reveal">
+                    <div class="text-3xl mb-4">❌</div>
+                    <h3 class="text-lg font-heading font-bold uppercase text-white mb-2">No Risk Control</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        No defined risk parameters. Trading without stop losses or dynamically moving stop losses to avoid minor drawdowns.
+                    </p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-navy-900/50 border border-slate-800/80 rounded-xl p-6 transition-all duration-300 hover:border-red-500/30 hover:bg-navy-900 group reveal">
+                    <div class="text-3xl mb-4">❌</div>
+                    <h3 class="text-lg font-heading font-bold uppercase text-white mb-2">No Trading Plan</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Entering the markets randomly based on social media hypes, signal groups, or visual guessing without a rigorous plan.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Gold Luxury Divider -->
+            <div class="relative py-8 flex items-center justify-center mb-16 reveal">
+                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gold/20"></div></div>
+                <div class="relative px-6 bg-navy-950 border border-gold/40 py-2 rounded-full shadow-gold-glow flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-gold"></span>
+                    <span class="text-xs tracking-[0.2em] font-heading font-bold uppercase text-gold">THE CHETTELA METRICS</span>
+                    <span class="w-2 h-2 rounded-full bg-gold"></span>
+                </div>
+            </div>
+
+            <!-- Success Content -->
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Our Strategic Solution</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 tracking-tight uppercase">
+                    HOW WE CULTIVATE <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold">PROFESSIONALS</span>
+                </h2>
+                <p class="text-slate-400 text-sm max-w-xl mx-auto mt-3">We replace random luck with mathematical probability models and structural rigor.</p>
+            </div>
+
+            <!-- Our Academy Teaches Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                <!-- Card 1 -->
+                <div class="bg-navy-900/55 border border-gold/15 rounded-xl p-6 transition-all duration-300 hover:border-gold/40 hover:shadow-gold-glow/10 group">
+                    <div class="text-3xl mb-4">✅</div>
+                    <h3 class="text-lg font-heading font-bold uppercase text-gold mb-2">Professional Discipline</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Execute only when setups perfectly match rules. Learn to treat trading like an institutional vault, not a casino floor.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-navy-900/55 border border-gold/15 rounded-xl p-6 transition-all duration-300 hover:border-gold/40 hover:shadow-gold-glow/10 group">
+                    <div class="text-3xl mb-4">✅</div>
+                    <h3 class="text-lg font-heading font-bold uppercase text-gold mb-2">Structured Learning</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        A rigorous logical sequence starting from absolute foundations up to highly proprietary price-action entry matrix.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-navy-900/55 border border-gold/15 rounded-xl p-6 transition-all duration-300 hover:border-gold/40 hover:shadow-gold-glow/10 group">
+                    <div class="text-3xl mb-4">✅</div>
+                    <h3 class="text-lg font-heading font-bold uppercase text-gold mb-2">Risk First Approach</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Every position's worst-case loss is mathematically modeled beforehand. Protecting capital is always priority number one.
+                    </p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-navy-900/55 border border-gold/15 rounded-xl p-6 transition-all duration-300 hover:border-gold/40 hover:shadow-gold-glow/10 group">
+                    <div class="text-3xl mb-4">✅</div>
+                    <h3 class="text-lg font-heading font-bold uppercase text-gold mb-2">Repeatable Process</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Rely entirely on highly objective mechanical entry protocols that remain profitable across all market conditions.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 3: Professional Trader Framework -->
+    <section id="framework" class="py-24 bg-white relative overflow-hidden">
+        <!-- Background accents -->
+        <div class="absolute top-1/2 left-0 w-96 h-96 bg-royal/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-royal">Curriculum Pathway</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 tracking-tight uppercase text-navy-900">
+                    THE PROFESSIONAL <br>TRADER FRAMEWORK
+                </h2>
+                <div class="w-16 h-1 bg-royal mx-auto mt-4"></div>
+                <p class="text-slate-500 mt-4 text-sm leading-relaxed">
+                    A comprehensive, progressive curriculum model engineered to mold beginners into self-sufficient market professionals. Click steps to view deep framework concepts.
+                </p>
+            </div>
+
+            <!-- Dynamic Horizontal Timeline (Scrollable desktop, stacked mobile) -->
+            <div class="relative reveal">
+                <!-- Timeline Navigation for Desktop -->
+                <div class="flex overflow-x-auto no-scrollbar pb-6 gap-3 lg:justify-between px-2">
+                    
+                    <button onclick="activateStep(1)" class="framework-tab active flex-shrink-0 bg-navy-950 border border-gold text-white px-5 py-4 rounded-xl shadow-premium transition-all duration-300 focus:outline-none" id="tab-1">
+                        <span class="block font-numbers text-xs text-gold font-bold">STAGE 01</span>
+                        <span class="block font-heading text-sm uppercase tracking-wider mt-0.5">Mindset & Ethics</span>
+                    </button>
+
+                    <button onclick="activateStep(2)" class="framework-tab flex-shrink-0 bg-white border border-slate-200 text-navy-900 px-5 py-4 rounded-xl shadow-premium transition-all duration-300 focus:outline-none" id="tab-2">
+                        <span class="block font-numbers text-xs text-slate-400 font-bold">STAGE 02</span>
+                        <span class="block font-heading text-sm uppercase tracking-wider mt-0.5">Market Basics</span>
+                    </button>
+
+                    <button onclick="activateStep(3)" class="framework-tab flex-shrink-0 bg-white border border-slate-200 text-navy-900 px-5 py-4 rounded-xl shadow-premium transition-all duration-300 focus:outline-none" id="tab-3">
+                        <span class="block font-numbers text-xs text-slate-400 font-bold">STAGE 03</span>
+                        <span class="block font-heading text-sm uppercase tracking-wider mt-0.5">Technical Setup</span>
+                    </button>
+
+                    <button onclick="activateStep(4)" class="framework-tab flex-shrink-0 bg-white border border-slate-200 text-navy-900 px-5 py-4 rounded-xl shadow-premium transition-all duration-300 focus:outline-none" id="tab-4">
+                        <span class="block font-numbers text-xs text-slate-400 font-bold">STAGE 04</span>
+                        <span class="block font-heading text-sm uppercase tracking-wider mt-0.5">Fundamentals</span>
+                    </button>
+
+                    <button onclick="activateStep(5)" class="framework-tab flex-shrink-0 bg-white border border-slate-200 text-navy-900 px-5 py-4 rounded-xl shadow-premium transition-all duration-300 focus:outline-none" id="tab-5">
+                        <span class="block font-numbers text-xs text-slate-400 font-bold">STAGE 05</span>
+                        <span class="block font-heading text-sm uppercase tracking-wider mt-0.5">Price Action</span>
+                    </button>
+
+                    <button onclick="activateStep(6)" class="framework-tab flex-shrink-0 bg-white border border-slate-200 text-navy-900 px-5 py-4 rounded-xl shadow-premium transition-all duration-300 focus:outline-none" id="tab-6">
+                        <span class="block font-numbers text-xs text-slate-400 font-bold">STAGE 06</span>
+                        <span class="block font-heading text-sm uppercase tracking-wider mt-0.5">Risk Design</span>
+                    </button>
+
+                    <button onclick="activateStep(7)" class="framework-tab flex-shrink-0 bg-white border border-slate-200 text-navy-900 px-5 py-4 rounded-xl shadow-premium transition-all duration-300 focus:outline-none" id="tab-7">
+                        <span class="block font-numbers text-xs text-slate-400 font-bold">STAGE 07</span>
+                        <span class="block font-heading text-sm uppercase tracking-wider mt-0.5">Psychology</span>
+                    </button>
+
+                    <button onclick="activateStep(8)" class="framework-tab flex-shrink-0 bg-white border border-slate-200 text-navy-900 px-5 py-4 rounded-xl shadow-premium transition-all duration-300 focus:outline-none" id="tab-8">
+                        <span class="block font-numbers text-xs text-slate-400 font-bold">STAGE 08</span>
+                        <span class="block font-heading text-sm uppercase tracking-wider mt-0.5">Live Execution</span>
+                    </button>
+
+                    <button onclick="activateStep(9)" class="framework-tab flex-shrink-0 bg-white border border-slate-200 text-navy-900 px-5 py-4 rounded-xl shadow-premium transition-all duration-300 focus:outline-none" id="tab-9">
+                        <span class="block font-numbers text-xs text-slate-400 font-bold">STAGE 09</span>
+                        <span class="block font-heading text-sm uppercase tracking-wider mt-0.5">Consistency</span>
+                    </button>
+
+                </div>
+
+                <!-- Display Content Card (Dynamic swap via JS) -->
+                <div class="mt-8 bg-navy-950 text-white rounded-2xl p-8 lg:p-12 relative overflow-hidden shadow-2xl border border-gold/10">
+                    <div class="absolute inset-0 opacity-[0.02] grid-bg"></div>
+                    
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center" id="framework-content-container">
+                        <!-- Default Slide 1 Content -->
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="inline-block bg-gold/15 text-gold border border-gold/30 px-3 py-1 rounded text-xs font-semibold tracking-wider uppercase">
+                                Stage 1: Absolute Professionalism
+                            </div>
+                            <h3 class="font-heading font-extrabold text-2xl lg:text-4xl text-white uppercase tracking-tight">
+                                Establishing The Professional Paradigm
+                            </h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                True trading greatness doesn't start with complex indicators or geometric charting. It starts with your personal standard of operation. Before we place a single mock trade, we establish elite routines, statistical expectancy models, and strict institutional ethics protocols.
+                            </p>
+                            <ul class="space-y-2.5 text-xs text-slate-300 font-medium">
+                                <li class="flex items-center gap-2.5"><span class="text-gold">✔</span> Rejecting "Get-Rich-Quick" retail paradigms.</li>
+                                <li class="flex items-center gap-2.5"><span class="text-gold">✔</span> Establishing a professional trading journal.</li>
+                                <li class="flex items-center gap-2.5"><span class="text-gold">✔</span> The logic of statistical edge over hundreds of trades.</li>
+                            </ul>
+                        </div>
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="relative p-6 bg-navy-900/60 rounded-2xl border border-slate-800/80 w-full max-w-sm text-center">
+                                <div class="text-6xl mb-4">🎯</div>
+                                <span class="block font-heading font-bold text-xs uppercase tracking-widest text-slate-400 mb-1">Key Objective</span>
+                                <p class="text-slate-300 text-sm font-light">Eliminating gambling addictions and developing absolute cognitive bias control.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 4: What You'll Master -->
+    <section class="py-24 bg-offwhite border-y border-slate-200 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-royal">Elite Skill Acquisition</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 tracking-tight uppercase text-navy-900">
+                    WHAT YOU'LL MASTER
+                </h2>
+                <div class="w-16 h-1 bg-royal mx-auto mt-4"></div>
+                <p class="text-slate-500 mt-4 text-sm leading-relaxed">
+                    Unlock deep operational competence across critical trading disciplines. These are practical, structural abilities used by elite desks daily.
+                </p>
+            </div>
+
+            <!-- Master Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                
+                <!-- Card 1 -->
+                <div class="bg-white border border-slate-200/85 hover:border-royal/40 rounded-xl p-6 transition-all duration-300 hover:shadow-premium hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-royal/5 rounded-lg flex items-center justify-center text-royal mb-4 font-bold text-xl">01</div>
+                    <h3 class="font-heading font-extrabold text-navy-900 text-sm uppercase tracking-wide mb-2">Market Structure</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Identify precise institutional breaks, swing structures, highs, lows, and macro trends without confusing chart indicators.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white border border-slate-200/85 hover:border-royal/40 rounded-xl p-6 transition-all duration-300 hover:shadow-premium hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-royal/5 rounded-lg flex items-center justify-center text-royal mb-4 font-bold text-xl">02</div>
+                    <h3 class="font-heading font-extrabold text-navy-900 text-sm uppercase tracking-wide mb-2">Liquidity Engineering</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Learn where big institutions place trap orders and how to protect yourself from stop hunts and false breakouts.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white border border-slate-200/85 hover:border-royal/40 rounded-xl p-6 transition-all duration-300 hover:shadow-premium hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-royal/5 rounded-lg flex items-center justify-center text-royal mb-4 font-bold text-xl">03</div>
+                    <h3 class="font-heading font-extrabold text-navy-900 text-sm uppercase tracking-wide mb-2">Supply & Demand</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Map institutional order blocks, imbalance zones, and fair value gaps (FVG) where high-probability orders execute.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white border border-slate-200/85 hover:border-royal/40 rounded-xl p-6 transition-all duration-300 hover:shadow-premium hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-royal/5 rounded-lg flex items-center justify-center text-royal mb-4 font-bold text-xl">04</div>
+                    <h3 class="font-heading font-extrabold text-navy-900 text-sm uppercase tracking-wide mb-2">Risk Management</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Build dynamic mathematical sizing calculators, manage portfolio drawdowns, and maintain proper risk-reward ratio rules (R:R).
+                    </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white border border-slate-200/85 hover:border-royal/40 rounded-xl p-6 transition-all duration-300 hover:shadow-premium hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-royal/5 rounded-lg flex items-center justify-center text-royal mb-4 font-bold text-xl">05</div>
+                    <h3 class="font-heading font-extrabold text-navy-900 text-sm uppercase tracking-wide mb-2">Trading Psychology</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Understand internal cognitive traps like fear-of-missing-out (FOMO), hope, greed, and build absolute calm emotional detachment.
+                    </p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white border border-slate-200/85 hover:border-royal/40 rounded-xl p-6 transition-all duration-300 hover:shadow-premium hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-royal/5 rounded-lg flex items-center justify-center text-royal mb-4 font-bold text-xl">06</div>
+                    <h3 class="font-heading font-extrabold text-navy-900 text-sm uppercase tracking-wide mb-2">Economic News</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Interpret key economic indicators such as NFP, CPI, and central bank interest rates. Protect capital during high-impact spikes.
+                    </p>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="bg-white border border-slate-200/85 hover:border-royal/40 rounded-xl p-6 transition-all duration-300 hover:shadow-premium hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-royal/5 rounded-lg flex items-center justify-center text-royal mb-4 font-bold text-xl">07</div>
+                    <h3 class="font-heading font-extrabold text-navy-900 text-sm uppercase tracking-wide mb-2">Gold Trading (XAUUSD)</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Formulate structural trading protocols designed specifically for the volatility, spread profile, and behaviors of Spot Gold.
+                    </p>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="bg-white border border-slate-200/85 hover:border-royal/40 rounded-xl p-6 transition-all duration-300 hover:shadow-premium hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-royal/5 rounded-lg flex items-center justify-center text-royal mb-4 font-bold text-xl">08</div>
+                    <h3 class="font-heading font-extrabold text-navy-900 text-sm uppercase tracking-wide mb-2">Trading Journal Setup</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Implement automated statistical reviews. Measure performance metrics over time to verify actual structural growth.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 5: Meet Your Mentor -->
+    <section id="mentor" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Premium Image Layout with CSS Fallbacks -->
+                <div class="lg:col-span-5 relative reveal">
+                    <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-navy-950 border border-slate-200 shadow-2xl flex items-center justify-center group">
+                        <!-- Custom high fidelity avatar placeholder representing institutional prestige -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-950 to-navy-900 flex flex-col items-center justify-center text-center p-8">
+                            <div class="w-32 h-32 rounded-full border-2 border-gold/40 flex items-center justify-center text-gold text-4xl font-heading font-bold mb-4 bg-navy-900 shadow-gold-glow">
+                                RC
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-white tracking-wide">Raakesh Chettela</h3>
+                            <p class="text-xs text-gold uppercase tracking-[0.2em] font-medium mt-1">Founder & Lead Mentor</p>
+                            <span class="text-[10px] text-slate-400 font-numbers mt-6 block">CHETTELA FOREX ACADEMY</span>
+                        </div>
+                    </div>
+                    <!-- Absolute badge -->
+                    <div class="absolute -bottom-6 -right-6 bg-navy-950 text-white border border-gold border-solid p-5 rounded-xl shadow-gold-glow max-w-[200px] hidden md:block">
+                        <span class="block font-numbers text-3xl font-bold text-gold">10+</span>
+                        <span class="block text-[10px] font-heading font-bold uppercase tracking-wider text-slate-300 mt-1">Years Institutional Trading Expertise</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Biography Content -->
+                <div class="lg:col-span-7 space-y-8 reveal">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold uppercase tracking-widest text-royal">Elite Mentorship</span>
+                        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight uppercase text-navy-900">
+                            MEET YOUR MENTOR
+                        </h2>
+                        <span class="block text-lg font-heading font-semibold text-royal">Raakesh Chettela</span>
+                        <span class="block text-xs uppercase tracking-widest text-slate-400 font-semibold mt-1">Founder, Chettela Forex Academy</span>
+                    </div>
+
+                    <!-- Luxury Quote block -->
+                    <div class="border-l-4 border-gold pl-6 py-2 italic text-navy-900 text-lg sm:text-xl font-light">
+                        "The market doesn't reward intelligence. <br class="hidden sm:block">It rewards discipline."
+                    </div>
+
+                    <!-- Biography highlights -->
+                    <p class="text-slate-500 text-sm leading-relaxed font-light">
+                        With over a decade of direct market trading experience, Raakesh Chettela founded the Academy with a single objective: to dismantle the unrealistic, flash-guru lifestyles promoted in retail trading and replace them with rigorous, professional-grade methodologies used by institutional desks globally.
+                    </p>
+
+                    <!-- Core Credential Points -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-offwhite border border-slate-200/80 p-4 rounded-lg flex items-start gap-3">
+                            <span class="text-gold text-xl">🛡</span>
+                            <div>
+                                <h4 class="font-heading font-bold uppercase text-navy-900 text-xs">Risk-First Execution</h4>
+                                <p class="text-[11px] text-slate-500 mt-0.5">Capital preservation remains our highest focus metric.</p>
+                            </div>
+                        </div>
+                        <div class="bg-offwhite border border-slate-200/80 p-4 rounded-lg flex items-start gap-3">
+                            <span class="text-royal text-xl">📊</span>
+                            <div>
+                                <h4 class="font-heading font-bold uppercase text-navy-900 text-xs">Statistical Clarity</h4>
+                                <p class="text-[11px] text-slate-500 mt-0.5">We use strictly verified entry processes with transparent mathematical metrics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Premium Course Syllabus Cards -->
+    <section id="curriculum" class="bg-navy-950 py-24 text-white relative overflow-hidden grid-bg">
+        <!-- Accent circles -->
+        <div class="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-royal/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold">Structured Curriculum</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 tracking-tight uppercase">
+                    THE COMPLETE SYLLABUS
+                </h2>
+                <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+                <p class="text-slate-400 mt-4 text-sm leading-relaxed">
+                    A rigorous master syllabus comprising 8 comprehensive course volumes designed with total logical precision.
+                </p>
+            </div>
+
+            <!-- Volumes Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                
+                <!-- Vol 0 -->
+                <div class="glass-panel-dark rounded-xl p-6 transition-all duration-300 hover:border-gold/60 group flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-numbers text-xs text-gold uppercase tracking-widest">VOLUME 00</span>
+                            <span class="bg-gold/20 text-gold border border-gold/30 text-[10px] font-bold px-2.5 py-0.5 rounded uppercase font-sans">FREE ACCESS</span>
+                        </div>
+                        <h3 class="font-heading font-extrabold uppercase text-white tracking-wide text-sm mb-3">Mindset & Foundations</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Establish elite professional ethics. Build your daily execution schedules and understand true statistical expectation models.
+                        </p>
+                    </div>
+                    <button onclick="openModal('free-class-modal')" class="w-full text-center bg-transparent border border-gold/40 hover:bg-gold hover:text-navy-950 text-[10px] font-heading font-bold uppercase tracking-wider py-2 rounded mt-6 transition-all">
+                        Watch Volume 0
+                    </button>
+                </div>
+
+                <!-- Vol 1 -->
+                <div class="glass-panel-dark rounded-xl p-6 transition-all duration-300 hover:border-royal/60 group flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-numbers text-xs text-slate-400 uppercase tracking-widest">VOLUME 01</span>
+                            <span class="bg-royal/15 text-royal-light text-[10px] font-bold px-2.5 py-0.5 rounded uppercase font-sans">CORE</span>
+                        </div>
+                        <h3 class="font-heading font-extrabold uppercase text-white tracking-wide text-sm mb-3">Forex Foundation</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Master structural currency market pricing dynamics, pip logic, bidding, order placement mechanics, and pricing execution structures.
+                        </p>
+                    </div>
+                    <a href="#payment-section" class="w-full text-center bg-royal hover:bg-royal-dark text-white text-[10px] font-heading font-bold uppercase tracking-wider py-2 rounded mt-6 transition-all block">
+                        Enroll in Academy
+                    </a>
+                </div>
+
+                <!-- Vol 2 -->
+                <div class="glass-panel-dark rounded-xl p-6 transition-all duration-300 hover:border-royal/60 group flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-numbers text-xs text-slate-400 uppercase tracking-widest">VOLUME 02</span>
+                            <span class="bg-royal/15 text-royal-light text-[10px] font-bold px-2.5 py-0.5 rounded uppercase font-sans">CORE</span>
+                        </div>
+                        <h3 class="font-heading font-extrabold uppercase text-white tracking-wide text-sm mb-3">Technical Analysis</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Interpret advanced mapping paradigms. Read true multi-timeframe correlation models, key pricing metrics, and trade structure.
+                        </p>
+                    </div>
+                    <a href="#payment-section" class="w-full text-center bg-royal hover:bg-royal-dark text-white text-[10px] font-heading font-bold uppercase tracking-wider py-2 rounded mt-6 transition-all block">
+                        Enroll in Academy
+                    </a>
+                </div>
+
+                <!-- Vol 3 -->
+                <div class="glass-panel-dark rounded-xl p-6 transition-all duration-300 hover:border-royal/60 group flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-numbers text-xs text-slate-400 uppercase tracking-widest">VOLUME 03</span>
+                            <span class="bg-royal/15 text-royal-light text-[10px] font-bold px-2.5 py-0.5 rounded uppercase font-sans">PRO</span>
+                        </div>
+                        <h3 class="font-heading font-extrabold uppercase text-white tracking-wide text-sm mb-3">Price Action</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Master institutional supply & demand models, order blocks, FVG liquidity hunts, and our proprietary high-probability entry setups.
+                        </p>
+                    </div>
+                    <a href="#payment-section" class="w-full text-center bg-royal hover:bg-royal-dark text-white text-[10px] font-heading font-bold uppercase tracking-wider py-2 rounded mt-6 transition-all block">
+                        Enroll in Academy
+                    </a>
+                </div>
+
+                <!-- Vol 4 -->
+                <div class="glass-panel-dark rounded-xl p-6 transition-all duration-300 hover:border-royal/60 group flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-numbers text-xs text-slate-400 uppercase tracking-widest">VOLUME 04</span>
+                            <span class="bg-royal/15 text-royal-light text-[10px] font-bold px-2.5 py-0.5 rounded uppercase font-sans">PRO</span>
+                        </div>
+                        <h3 class="font-heading font-extrabold uppercase text-white tracking-wide text-sm mb-3">Macro Fundamentals</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Decode global macroeconomic releases, bond yield spreads, inflation indexes, and central bank interest rate actions.
+                        </p>
+                    </div>
+                    <a href="#payment-section" class="w-full text-center bg-royal hover:bg-royal-dark text-white text-[10px] font-heading font-bold uppercase tracking-wider py-2 rounded mt-6 transition-all block">
+                        Enroll in Academy
+                    </a>
+                </div>
+
+                <!-- Vol 5 -->
+                <div class="glass-panel-dark rounded-xl p-6 transition-all duration-300 hover:border-royal/60 group flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-numbers text-xs text-slate-400 uppercase tracking-widest">VOLUME 05</span>
+                            <span class="bg-royal/15 text-royal-light text-[10px] font-bold px-2.5 py-0.5 rounded uppercase font-sans">ELITE</span>
+                        </div>
+                        <h3 class="font-heading font-extrabold uppercase text-white tracking-wide text-sm mb-3">Risk Management</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Construct mechanical stop loss placement metrics, dynamic lot-sizing models, and advanced portfolio draw-down mitigations.
+                        </p>
+                    </div>
+                    <a href="#payment-section" class="w-full text-center bg-royal hover:bg-royal-dark text-white text-[10px] font-heading font-bold uppercase tracking-wider py-2 rounded mt-6 transition-all block">
+                        Enroll in Academy
+                    </a>
+                </div>
+
+                <!-- Vol 6 -->
+                <div class="glass-panel-dark rounded-xl p-6 transition-all duration-300 hover:border-royal/60 group flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-numbers text-xs text-slate-400 uppercase tracking-widest">VOLUME 06</span>
+                            <span class="bg-royal/15 text-royal-light text-[10px] font-bold px-2.5 py-0.5 rounded uppercase font-sans">ELITE</span>
+                        </div>
+                        <h3 class="font-heading font-extrabold uppercase text-white tracking-wide text-sm mb-3">Trading Psychology</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Implement peak performance frameworks. Identify cognitive trading biases and construct a highly detached mechanical trading state.
+                        </p>
+                    </div>
+                    <a href="#payment-section" class="w-full text-center bg-royal hover:bg-royal-dark text-white text-[10px] font-heading font-bold uppercase tracking-wider py-2 rounded mt-6 transition-all block">
+                        Enroll in Academy
+                    </a>
+                </div>
+
+                <!-- Vol 7 -->
+                <div class="glass-panel-dark rounded-xl p-6 transition-all duration-300 hover:border-gold/60 group flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-numbers text-xs text-gold uppercase tracking-widest">VOLUME 07</span>
+                            <span class="bg-gold/20 text-gold border border-gold/30 text-[10px] font-bold px-2.5 py-0.5 rounded uppercase font-sans">MASTER</span>
+                        </div>
+                        <h3 class="font-heading font-extrabold uppercase text-white tracking-wide text-sm mb-3">Live Market Execution</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Watch live trade executions, active order adjustments, real-time risk modification, and complete trade breakdowns.
+                        </p>
+                    </div>
+                    <a href="#payment-section" class="w-full text-center bg-gold hover:bg-gold-dark text-navy-950 text-[10px] font-heading font-bold uppercase tracking-wider py-2 rounded mt-6 transition-all block">
+                        Enroll in Academy
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 7: Student Roadmap -->
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-royal">The Professional Journey</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 tracking-tight uppercase text-navy-900">
+                    STUDENT PROGRESS ROADMAP
+                </h2>
+                <div class="w-16 h-1 bg-royal mx-auto mt-4"></div>
+                <p class="text-slate-500 mt-4 text-sm leading-relaxed">
+                    How we guide you step-by-step from absolute beginner to fully funded professional trading veteran.
+                </p>
+            </div>
+
+            <!-- Interative Roadmap Steps -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 relative reveal">
+                
+                <!-- Step 1 -->
+                <div class="text-center relative">
+                    <div class="w-16 h-16 rounded-full bg-navy-950 border-2 border-gold flex items-center justify-center text-gold font-heading font-bold text-xl mx-auto mb-4 relative z-10 shadow-gold-glow">
+                        01
+                    </div>
+                    <h3 class="font-heading font-extrabold text-navy-900 text-sm uppercase tracking-wide mb-1">Beginner</h3>
+                    <p class="text-[11px] text-slate-500 leading-relaxed px-4">Master market mechanics, bidding, interface, logic and platforms.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center relative">
+                    <div class="w-16 h-16 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-slate-400 font-heading font-bold text-xl mx-auto mb-4 relative z-10">
+                        02
+                    </div>
+                    <h3 class="font-heading font-extrabold text-navy-900 text-sm uppercase tracking-wide mb-1">Demo Trading</h3>
+                    <p class="text-[11px] text-slate-500 leading-relaxed px-4">Build and backtest execution rules without risking capital.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center relative">
+                    <div class="w-16 h-16 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-slate-400 font-heading font-bold text-xl mx-auto mb-4 relative z-10">
+                        03
+                    </div>
+                    <h3 class="font-heading font-extrabold text-navy-900 text-sm uppercase tracking-wide mb-1">Trading Plan</h3>
+                    <p class="text-[11px] text-slate-500 leading-relaxed px-4">Construct your customized mathematical risk and rule set.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="text-center relative">
+                    <div class="w-16 h-16 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-slate-400 font-heading font-bold text-xl mx-auto mb-4 relative z-10">
+                        04
+                    </div>
+                    <h3 class="font-heading font-extrabold text-navy-900 text-sm uppercase tracking-wide mb-1">Consistency</h3>
+                    <p class="text-[11px] text-slate-500 leading-relaxed px-4">Verify trade sample metrics under real-market micro accounts.</p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="text-center relative">
+                    <div class="w-16 h-16 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-slate-400 font-heading font-bold text-xl mx-auto mb-4 relative z-10">
+                        05
+                    </div>
+                    <h3 class="font-heading font-extrabold text-navy-900 text-sm uppercase tracking-wide mb-1">Funded Pro</h3>
+                    <p class="text-[11px] text-slate-500 leading-relaxed px-4">Trade with institutional firm backing and massive growth potential.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 8: Split Screen Comparison -->
+    <section id="comparison" class="py-24 bg-navy-950 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-navy-900/50 to-navy-950 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold">The Standard Paradigm</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 tracking-tight uppercase">
+                    WHAT MAKES US DIFFERENT
+                </h2>
+                <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+
+            <!-- Comparison Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch reveal">
+                
+                <!-- Left: Typical Retail Courses -->
+                <div class="bg-navy-900/30 border border-slate-800 rounded-2xl p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-heading font-extrabold text-lg uppercase text-slate-400 mb-6 flex items-center gap-2">
+                            <span>❌</span> TYPICAL RETAIL GURUS
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 text-base mt-0.5">✕</span>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Lamborghinis & Luxury Flexing</h4>
+                                    <p class="text-xs text-slate-400 mt-0.5">Using high-ticket objects and fake lifestyles to draw in desperate, uneducated traders.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 text-base mt-0.5">✕</span>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Signal Channel Memberships</h4>
+                                    <p class="text-xs text-slate-400 mt-0.5">Creating total operational codependence instead of actual trading mastery and analysis.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 text-base mt-0.5">✕</span>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Unrealistic "100% Accuracy" Hype</h4>
+                                    <p class="text-xs text-slate-400 mt-0.5">Falsifying win-rate percentages and hiding risk exposure statistics.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 text-base mt-0.5">✕</span>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Get Rich Quick Promos</h4>
+                                    <p class="text-xs text-slate-400 mt-0.5">Pretending forex trading is an easy shortcut to escape regular jobs overnight.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right: Chettela Forex Academy -->
+                <div class="bg-navy-900/60 border border-gold rounded-2xl p-8 flex flex-col justify-between shadow-gold-glow">
+                    <div>
+                        <h3 class="font-heading font-extrabold text-lg uppercase text-gold mb-6 flex items-center gap-2">
+                            <span>✅</span> CHETTELA FOREX ACADEMY
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="text-gold text-base mt-0.5">✔</span>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Institutional Grade Methods</h4>
+                                    <p class="text-xs text-slate-300 mt-0.5">Structured price action structures used by major firms and banking institutions.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-gold text-base mt-0.5">✔</span>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Deep Mathematical Sizing</h4>
+                                    <p class="text-xs text-slate-300 mt-0.5">Protect capital at all times. Use active statistical risk calculators on every trade.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-gold text-base mt-0.5">✔</span>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Independent Mastery Focus</h4>
+                                    <p class="text-xs text-slate-300 mt-0.5">We teach you how to analyze and execute alone. We build independent fund managers.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-gold text-base mt-0.5">✔</span>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Honest Execution Realities</h4>
+                                    <p class="text-xs text-slate-300 mt-0.5">No sugarcoating. We prepare you mentally for raw drawdown cycles and statistical expectation.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 9: Learning Experience -->
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-royal">Engineered for Success</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 tracking-tight uppercase text-navy-900">
+                    THE LEARNING EXPERIENCE
+                </h2>
+                <div class="w-16 h-1 bg-royal mx-auto mt-4"></div>
+            </div>
+
+            <!-- Experience Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+                
+                <!-- Feature 1 -->
+                <div class="bg-offwhite border border-slate-200/80 rounded-xl p-6 transition-all hover:shadow-premium">
+                    <div class="text-3xl mb-4">🎙</div>
+                    <h3 class="font-heading font-bold text-navy-900 text-sm uppercase tracking-wide mb-2">Live Interactive Mentorship</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Engage in regular real-time video webinars. Review historical charts and get individual feedback on your live operations.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-offwhite border border-slate-200/80 rounded-xl p-6 transition-all hover:shadow-premium">
+                    <div class="text-3xl mb-4">📑</div>
+                    <h3 class="font-heading font-bold text-navy-900 text-sm uppercase tracking-wide mb-2">Practical Case Assignments</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Receive actual physical chart homework exercises designed to verify that you can identify institutional structures correctly.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-offwhite border border-slate-200/80 rounded-xl p-6 transition-all hover:shadow-premium">
+                    <div class="text-3xl mb-4">📝</div>
+                    <h3 class="font-heading font-bold text-navy-900 text-sm uppercase tracking-wide mb-2">Active Trading Quizzes</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Take step-by-step knowledge tests throughout every syllabus volume to make sure concepts are deeply understood.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-offwhite border border-slate-200/80 rounded-xl p-6 transition-all hover:shadow-premium">
+                    <div class="text-3xl mb-4">🔐</div>
+                    <h3 class="font-heading font-bold text-navy-900 text-sm uppercase tracking-wide mb-2">Lifetime Curriculum Access</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Access all present and future academy updates, new pricing masterclasses, and community forums for life.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-offwhite border border-slate-200/80 rounded-xl p-6 transition-all hover:shadow-premium">
+                    <div class="text-3xl mb-4">👥</div>
+                    <h3 class="font-heading font-bold text-navy-900 text-sm uppercase tracking-wide mb-2">Elite Community Hub</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Collaborate with other dedicated learners in private institutional chats. Share daily setups and verify risk parameters.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-offwhite border border-slate-200/80 rounded-xl p-6 transition-all hover:shadow-premium">
+                    <div class="text-3xl mb-4">🎓</div>
+                    <h3 class="font-heading font-bold text-navy-900 text-sm uppercase tracking-wide mb-2">Mastery Certification</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Earn your official Chettela Forex Academy Completion Certificate upon passing the final comprehensive technical review.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 10: Frequently Asked Questions -->
+    <section id="faq" class="py-24 bg-offwhite border-t border-slate-200 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-royal">Have Questions?</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 tracking-tight uppercase text-navy-900">
+                    FREQUENTLY ASKED QUESTIONS
+                </h2>
+                <div class="w-16 h-1 bg-royal mx-auto mt-4"></div>
+            </div>
+
+            <!-- FAQ Accordion Structure -->
+            <div class="space-y-4 reveal">
+                
+                <!-- FAQ Item 1 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-300">
+                    <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none" onclick="toggleFaq(1)">
+                        <span class="font-heading font-bold text-sm sm:text-base text-navy-900 uppercase tracking-wide">Do I need prior trading experience?</span>
+                        <svg id="faq-icon-1" class="w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="faq-content-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="p-6 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed border-t border-slate-50">
+                            No, you do not. Our syllabus is strategically designed starting from absolute foundations (Volume 0 and 1) to ensure complete newcomers can learn correctly without prior bad habits.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-300">
+                    <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none" onclick="toggleFaq(2)">
+                        <span class="font-heading font-bold text-sm sm:text-base text-navy-900 uppercase tracking-wide">Is there lifetime support?</span>
+                        <svg id="faq-icon-2" class="w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="faq-content-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="p-6 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed border-t border-slate-50">
+                            Yes, absolutely. Once you enroll, you gain lifetime access to our active community hub, all webinar updates, live review sessions, and interactive syllabus updates forever.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-300">
+                    <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none" onclick="toggleFaq(3)">
+                        <span class="font-heading font-bold text-sm sm:text-base text-navy-900 uppercase tracking-wide">How does the risk calculator assist me?</span>
+                        <svg id="faq-icon-3" class="w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="faq-content-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="p-6 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed border-t border-slate-50">
+                            Our dynamic Risk Calculator calculates your exact position size in standard lots based on your account capital, targeted risk percentage, and designated stop-loss size. This preserves your capital from accidental liquidation.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-300">
+                    <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none" onclick="toggleFaq(4)">
+                        <span class="font-heading font-bold text-sm sm:text-base text-navy-900 uppercase tracking-wide">Can I trade while working a full-time job?</span>
+                        <svg id="faq-icon-4" class="w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="faq-content-4" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="p-6 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed border-t border-slate-50">
+                            Yes. We teach higher-timeframe swing trading methodologies (4-Hour and Daily structure models) that require less than 45 minutes of daily charting, allowing complete career flexibility.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Final CTA Section with Luxury Pricing Card -->
+    <section id="payment-section" class="bg-navy-950 py-24 text-white relative overflow-hidden grid-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-navy-950 pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[150px] pointer-events-none pulse-bg"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <div class="max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold">Commit To Excellence</span>
+                <h2 class="font-heading font-extrabold text-4xl sm:text-5xl mt-2 tracking-tight uppercase leading-none">
+                    READY TO BECOME A <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold">DISCIPLINED TRADER?</span>
+                </h2>
+                <p class="text-slate-400 mt-4 text-sm max-w-xl mx-auto">
+                    Join Chettela Forex Academy today and transition from the chaotic retail cycle into institutional accuracy.
+                </p>
+            </div>
+
+            <!-- Premium Pricing Box -->
+            <div class="bg-navy-900/80 border border-gold rounded-2xl p-8 sm:p-12 max-w-lg mx-auto shadow-gold-glow reveal">
+                <span class="bg-gold/15 text-gold border border-gold/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+                    LIFETIME ACADEMY ACCESS
+                </span>
+                
+                <!-- Pricing Area -->
+                <div class="my-6">
+                    <span class="text-slate-400 line-through text-lg font-numbers font-medium block">$1,499</span>
+                    <span class="text-5xl sm:text-6xl font-numbers font-extrabold text-white mt-1 block">
+                        $499<span class="text-sm font-sans font-normal text-slate-400 uppercase tracking-widest ml-1">USD</span>
+                    </span>
+                    <span class="text-xs text-gold font-semibold uppercase mt-2 block">One-time payment • Lifetime access</span>
+                </div>
+
+                <ul class="space-y-3.5 text-left text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-6 mb-8">
+                    <li class="flex items-center gap-3"><span class="text-gold">✔</span> Complete Academy Coursework (Vols 1–7)</li>
+                    <li class="flex items-center gap-3"><span class="text-gold">✔</span> Permanent Elite Private Community Access</li>
+                    <li class="flex items-center gap-3"><span class="text-gold">✔</span> Interactive Live Q&A Webinars & Reviews</li>
+                    <li class="flex items-center gap-3"><span class="text-gold">✔</span> Comprehensive Certification Review</li>
+                </ul>
+
+                <!-- Button -->
+                <button onclick="openModal('enroll-modal')" class="w-full bg-gold hover:bg-gold-dark text-navy-950 font-heading font-bold uppercase tracking-wider py-4 rounded-xl shadow-gold-glow transition-all duration-300 hover:-translate-y-1">
+                    Enroll Now
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-navy-950 border-t border-slate-900 py-16 text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Col 1: Brand -->
+                <div class="space-y-4 md:col-span-2">
+                    <a href="#" class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded bg-navy-900 border border-gold flex items-center justify-center shadow-gold-glow">
+                            <span class="font-heading font-extrabold text-gold text-lg">C</span>
+                        </div>
+                        <div>
+                            <div class="font-heading font-extrabold text-white tracking-wider text-base uppercase leading-none">
+                                CHETTELA <span class="text-gold">FOREX</span>
+                            </div>
+                            <span class="text-[9px] font-sans font-semibold tracking-[0.25em] text-royal-light uppercase block">ACADEMY</span>
+                        </div>
+                    </a>
+                    <p class="text-xs max-w-sm leading-relaxed">
+                        Precision institutional Forex education engineered for dedicated practitioners. No signals, no shortcuts. Just raw mathematical statistics and proven structural rules.
+                    </p>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-white mb-4">Academy</h4>
+                    <ul class="space-y-2.5 text-xs font-semibold">
+                        <li><a href="#why-fail" class="hover:text-gold transition-colors">Philosophy</a></li>
+                        <li><a href="#framework" class="hover:text-gold transition-colors">Framework</a></li>
+                        <li><a href="#curriculum" class="hover:text-gold transition-colors">Syllabus</a></li>
+                        <li><a href="#mentor" class="hover:text-gold transition-colors">Founder Bio</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Legal & Regulatory -->
+                <div>
+                    <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-white mb-4">Risk Disclaimer</h4>
+                    <p class="text-[10px] leading-relaxed">
+                        Trading foreign exchange on margin carries high risk and may not be suitable for all individuals. Historical metrics are not necessarily indicative of future performance. This is purely educational.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-slate-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-[10px] gap-4">
+                <span>&copy; 2026 Chettela Forex Academy. All rights reserved.</span>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-gold">Terms of Service</a>
+                    <a href="#" class="hover:text-gold">Privacy Policy</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Custom Video Modal Popup -->
+    <div id="free-class-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/80 backdrop-blur-md hidden transition-all duration-300">
+        <div class="bg-navy-900 border border-gold/40 rounded-2xl w-full max-w-3xl overflow-hidden shadow-gold-glow relative">
+            
+            <!-- Close Button -->
+            <button onclick="closeModal('free-class-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white focus:outline-none z-10" aria-label="Close">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <!-- Video Player container -->
+            <div class="p-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold block mb-2">FREE INTRODUCTORY CLASS</span>
+                <h3 class="font-heading font-extrabold text-lg sm:text-xl text-white uppercase tracking-tight mb-4">
+                    VOLUME 0: INSTITUTIONAL MARKET DYNAMICS
+                </h3>
+                
+                <!-- Mock High Fidelity Video Component -->
+                <div class="relative aspect-video rounded-lg bg-navy-950 border border-slate-800 flex items-center justify-center overflow-hidden">
+                    <!-- Play icon -->
+                    <div id="modal-video-overlay" class="absolute inset-0 bg-cover bg-center flex flex-col items-center justify-center cursor-pointer transition-all hover:bg-black/40" style="background-image: linear-gradient(rgba(8, 28, 58, 0.8), rgba(3, 12, 26, 0.9))">
+                        <div class="w-16 h-16 rounded-full bg-gold hover:bg-gold-dark text-navy-950 flex items-center justify-center shadow-gold-glow transition-transform hover:scale-105">
+                            <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-wider font-heading font-bold text-white mt-4">Click to Play Lecture Video</span>
+                    </div>
+                    
+                    <!-- Simulating Active Player State (using SVG & pure JS play simulator) -->
+                    <div id="modal-simulated-player" class="w-full h-full p-4 flex flex-col justify-between hidden">
+                        <div class="flex justify-between items-center text-xs text-slate-400">
+                            <span>LECTURE: THE COGNITIVE BIAS TRAP</span>
+                            <span class="bg-red-500/10 text-red-400 border border-red-500/20 px-2 py-0.5 rounded text-[10px] uppercase font-bold animate-pulse">RECORDED LECTURE</span>
+                        </div>
+                        
+                        <!-- Oscillating waveform simulator for audio feedback -->
+                        <div class="flex items-center justify-center gap-1.5 h-20">
+                            <span class="w-1 bg-gold h-12 rounded animate-pulse"></span>
+                            <span class="w-1 bg-gold h-16 rounded animate-pulse" style="animation-delay: 0.2s"></span>
+                            <span class="w-1 bg-gold h-10 rounded animate-pulse" style="animation-delay: 0.4s"></span>
+                            <span class="w-1 bg-gold h-20 rounded animate-pulse" style="animation-delay: 0.1s"></span>
+                            <span class="w-1 bg-gold h-14 rounded animate-pulse" style="animation-delay: 0.3s"></span>
+                            <span class="w-1 bg-gold h-8 rounded animate-pulse" style="animation-delay: 0.5s"></span>
+                        </div>
+
+                        <!-- Player Controls Bar -->
+                        <div class="border-t border-slate-800 pt-3 flex items-center justify-between text-xs text-slate-400 font-numbers">
+                            <div class="flex items-center space-x-4">
+                                <button class="hover:text-white" onclick="toggleSimulatedPlayback()">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                                </button>
+                                <span>04:12 / 48:50</span>
+                            </div>
+                            <span>1080p HD</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA text below video -->
+                <div class="mt-6 flex flex-col sm:flex-row justify-between items-center gap-4 pt-4 border-t border-slate-800">
+                    <p class="text-xs text-slate-400 leading-normal max-w-md text-center sm:text-left">
+                        Like what you see? Acquire the entire institutional course curriculum now to achieve true market competency.
+                    </p>
+                    <button onclick="closeModal('free-class-modal'); openModal('enroll-modal')" class="bg-gold hover:bg-gold-dark text-navy-950 text-xs font-heading font-bold uppercase tracking-wider px-5 py-3 rounded shadow transition-all block text-center w-full sm:w-auto">
+                        Enroll in Academy
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Enrollment Lead Capture Modal -->
+    <div id="enroll-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/80 backdrop-blur-md hidden transition-all duration-300">
+        <div class="bg-navy-900 border border-gold/40 rounded-2xl w-full max-w-md overflow-hidden shadow-gold-glow relative">
+
+            <!-- Close Button -->
+            <button onclick="closeModal('enroll-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white focus:outline-none z-10" aria-label="Close">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <!-- Form State -->
+            <div id="enroll-form-state" class="p-7 sm:p-8">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold block mb-2">SECURE YOUR SEAT</span>
+                <h3 class="font-heading font-extrabold text-xl sm:text-2xl text-white uppercase tracking-tight mb-2">
+                    Start Your Enrollment
+                </h3>
+                <p class="text-xs text-slate-400 mb-6 leading-relaxed">
+                    Share your details and our admissions team will reach out within 24 hours with your enrollment link.
+                </p>
+
+                <form id="enroll-form" class="space-y-4" novalidate>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5" for="enroll-name">Full Name</label>
+                        <input type="text" id="enroll-name" name="name" required placeholder="e.g. Ananya Sharma"
+                            class="w-full bg-navy-950 border border-slate-700 focus:border-gold rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5" for="enroll-email">Email Address</label>
+                        <input type="email" id="enroll-email" name="email" required placeholder="you@example.com"
+                            class="w-full bg-navy-950 border border-slate-700 focus:border-gold rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5" for="enroll-phone">Phone Number</label>
+                        <input type="tel" id="enroll-phone" name="phone" required placeholder="+91 98765 43210"
+                            class="w-full bg-navy-950 border border-slate-700 focus:border-gold rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5" for="enroll-experience">Trading Experience</label>
+                        <select id="enroll-experience" name="experience" required
+                            class="w-full bg-navy-950 border border-slate-700 focus:border-gold rounded-lg px-4 py-3 text-sm text-white outline-none transition-colors">
+                            <option value="" disabled selected>Select your level</option>
+                            <option value="Complete Beginner">Complete Beginner</option>
+                            <option value="Less than 1 Year">Less than 1 Year</option>
+                            <option value="1-3 Years">1–3 Years</option>
+                            <option value="3+ Years">3+ Years</option>
+                        </select>
+                    </div>
+
+                    <p id="enroll-error-msg" class="text-xs text-red-400 hidden"></p>
+
+                    <button type="submit" id="enroll-submit-btn" class="w-full bg-gold hover:bg-gold-dark text-navy-950 font-heading font-bold uppercase tracking-wider py-4 rounded-xl shadow-gold-glow transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2 disabled:opacity-60 disabled:hover:translate-y-0">
+                        <span id="enroll-submit-text">Submit Application</span>
+                    </button>
+                    <p class="text-[10px] text-slate-500 text-center leading-relaxed">By submitting, you agree to be contacted by Chettela Forex Academy regarding enrollment.</p>
+                </form>
+            </div>
+
+            <!-- Success State -->
+            <div id="enroll-success-state" class="p-8 text-center hidden">
+                <div class="w-16 h-16 rounded-full bg-gold/15 border border-gold/40 flex items-center justify-center mx-auto mb-5">
+                    <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h3 class="font-heading font-extrabold text-xl text-white uppercase tracking-tight mb-2">Application Received</h3>
+                <p class="text-sm text-slate-400 mb-6 leading-relaxed">Thank you! Our admissions team will contact you within 24 hours with your enrollment details.</p>
+                <button onclick="closeModal('enroll-modal')" class="bg-gold hover:bg-gold-dark text-navy-950 text-xs font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-xl transition-all">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Elegant Alert Box to replace native alert() -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3"></div>
+
+    <!-- Javascript Logical Implementations -->
+    <script>
+        // STICKY HEADER TRANSITION ON SCROLL
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('sticky-header');
+            const progress = document.getElementById('scroll-progress');
+            
+            // Handle active styling classes on scrolling
+            if (window.scrollY > 40) {
+                header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-premium', 'border-navy-900/10');
+                header.classList.remove('bg-transparent', 'border-transparent');
+            } else {
+                header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-premium', 'border-navy-900/10');
+                header.classList.add('bg-transparent', 'border-transparent');
+            }
+
+            // Scroll Progress Calculation
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progress.style.width = scrolled + '%';
+        });
+
+        // MOBILE MENU NAVIGATION ACCORDION
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                // Return to burger bar icon
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            } else {
+                // Cross mark icon
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            }
+        });
+
+        // Close mobile menu on clicking any navigation anchor
+        const mobileAnchors = mobileMenu.querySelectorAll('a');
+        mobileAnchors.forEach(anchor => {
+            anchor.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            });
+        });
+
+        // REVEAL ANIMATIONS ON SCROLL (Intersection Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // LIVE MOVING TICKER VALUES IN DASHBOARD
+        function simulateTickers() {
+            const xauEl = document.getElementById('xau-price');
+            const eurEl = document.getElementById('eur-price');
+            
+            setInterval(() => {
+                // XAUUSD Simulation
+                let xau = parseFloat(xauEl.innerText.replace(/,/g, ''));
+                let changeXau = (Math.random() - 0.48) * 0.45; // Positive bias
+                xau += changeXau;
+                xauEl.innerText = xau.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                xauEl.className = changeXau >= 0 ? "text-emerald-400 font-bold" : "text-red-400 font-bold";
+
+                // EURUSD Simulation
+                let eur = parseFloat(eurEl.innerText);
+                let changeEur = (Math.random() - 0.52) * 0.0002; // Negative bias
+                eur += changeEur;
+                eurEl.innerText = eur.toFixed(4);
+                eurEl.className = changeEur >= 0 ? "text-emerald-400 font-bold" : "text-red-400 font-bold";
+            }, 1400);
+        }
+
+        // DYNAMIC POSITION RISK MATRIX ENGINE
+        const balanceInput = document.getElementById('calc-balance');
+        const riskInput = document.getElementById('calc-risk');
+        const stopInput = document.getElementById('calc-stop');
+        const outCapital = document.getElementById('out-capital');
+        const outLots = document.getElementById('out-lots');
+
+        function updateRiskCalculation() {
+            const balance = parseFloat(balanceInput.value) || 0;
+            const riskPercent = parseFloat(riskInput.value) || 0;
+            const stopLossPips = parseFloat(stopInput.value) || 0;
+
+            if (balance <= 0 || riskPercent <= 0 || stopLossPips <= 0) {
+                outCapital.innerText = "$0.00";
+                outLots.innerText = "0.00 Lots";
+                return;
+            }
+
+            // Sizing Formulas (Assuming standard EURUSD style pip values of $10 per standard lot)
+            const dollarsRisked = balance * (riskPercent / 100);
+            const standardLotSize = dollarsRisked / (stopLossPips * 10);
+
+            outCapital.innerText = "$" + dollarsRisked.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            outLots.innerText = standardLotSize.toFixed(2) + " Lots";
+        }
+
+        // Attach event listeners to risk fields
+        balanceInput.addEventListener('input', updateRiskCalculation);
+        riskInput.addEventListener('input', updateRiskCalculation);
+        stopInput.addEventListener('input', updateRiskCalculation);
+        updateRiskCalculation(); // Initial execution
+
+        // DYNAMIC FRAMEWORK TABS SYSTEM
+        const frameworkData = {
+            1: {
+                tag: "Stage 1: Absolute Professionalism",
+                title: "Establishing The Professional Paradigm",
+                desc: "True trading greatness doesn't start with complex indicators or geometric charting. It starts with your personal standard of operation. Before we place a single mock trade, we establish elite routines, statistical expectancy models, and strict institutional ethics protocols.",
+                bullets: [
+                    "Rejecting 'Get-Rich-Quick' retail paradigms.",
+                    "Establishing a professional trading journal.",
+                    "The logic of statistical edge over hundreds of trades."
+                ],
+                objective: "Eliminating gambling addictions and developing absolute cognitive bias control."
+            },
+            2: {
+                tag: "Stage 2: Operational Base",
+                title: "Core Mechanics & Market Architecture",
+                desc: "Understanding the plumbing behind global order execution. We deep dive into bid-ask architecture, contract size mechanisms, swap calculations, operational hours profiles, session distributions, and spread optimization tactics.",
+                bullets: [
+                    "How global order execution engines function.",
+                    "Pip metrics, leverage models, margin profiles.",
+                    "Optimal institutional trading session windows."
+                ],
+                objective: "Full operational baseline understanding of high-frequency liquidity networks."
+            },
+            3: {
+                tag: "Stage 3: Professional Setup",
+                title: "Technical Infrastructure Deployment",
+                desc: "Learn to configure charts like real institutional desk managers. We eliminate confusing retail lagging indicators and construct a highly objective mechanical interface centered on true volume mapping and pure price history.",
+                bullets: [
+                    "Complete chart clearing protocol.",
+                    "Timeframe alignment and structural organization.",
+                    "Optimized charting hotkeys for rapid position entries."
+                ],
+                objective: "Eliminating retail lagging indicators to construct high-speed order flow panels."
+            },
+            4: {
+                tag: "Stage 4: Intermarket Pricing",
+                title: "Global Macro & Fundamental Engines",
+                desc: "How interest rates, debt securities, currency supply indices, and key economic matrix data shape pricing moves. We teach you how to analyze inflation patterns and central bank transcripts instead of watching random news clicks.",
+                bullets: [
+                    "Trading central bank decisions (FOMC, ECB, BOE).",
+                    "Treasury yields correlation matrices.",
+                    "High-impact data parsing (CPI, NFP, Retail Sales)."
+                ],
+                objective: "Reading macro fundamentals to align positions with central banking trends."
+            },
+            5: {
+                tag: "Stage 5: High Accuracy",
+                title: "Advanced Institutional Price Action",
+                desc: "The core engine of our trading model. Read the exact structure marks of major investment portfolios. Master structural swing shifts, order imbalances, liquidity pools, internal pricing sweeps, and advanced fair value gap execution.",
+                bullets: [
+                    "Structural breaks of structure (BOS) vs. change of character (CHoCH).",
+                    "Advanced Order Block selection metrics.",
+                    "High-probability entry matrix protocols."
+                ],
+                objective: "Executing high-probability setups alongside institutional order flows."
+            },
+            6: {
+                tag: "Stage 6: Capital Defense",
+                title: "Mathematical Sizing & Risk Management",
+                desc: "We prioritize capital security over everything. Master drawdown limits, dynamic stop loss allocation formulas, and multi-position hedging strategies to ensure an account cannot undergo catastrophic ruin under any scenario.",
+                bullets: [
+                    "Dynamic lot-sizing matrix based on ATR volatility indicators.",
+                    "Optimal Risk-Reward parameter limits (minimum 1:3).",
+                    "Managing consecutive losses without mathematical breakdown."
+                ],
+                objective: "Constructing an unbreakable defense protocol to preserve active trading capital."
+            },
+            7: {
+                tag: "Stage 7: Mind Balance",
+                title: "Peak Trading Psychology Training",
+                desc: "Forex trading is entirely an internal battle. We build systematic execution algorithms that eliminate active cognitive bias. Master fear of drawdowns, overtrading control, greed boundaries, and deep psychological discipline.",
+                bullets: [
+                    "Developing absolute detachment from profit/loss outcomes.",
+                    "Eliminating the impulse to trade based on boredom.",
+                    "Pre-flight visual and meditation checklists before active charts."
+                ],
+                objective: "Achieving a highly objective, calm, and robotic state of execution."
+            },
+            8: {
+                tag: "Stage 8: Market Battle",
+                title: "Live Execution & Real Market Action",
+                desc: "Transition from testing to real execution. We review active structures together, mapping live chart patterns, analyzing live news metrics, placing actual risk orders, and practicing active trade modifications.",
+                bullets: [
+                    "Live daily market structure reviews with community mentors.",
+                    "Dynamic stop loss adjustments and break-even rules.",
+                    "Executing orders with precise risk constraints."
+                ],
+                objective: "Deploying setups confidently into live market volatility."
+            },
+            9: {
+                tag: "Stage 9: Ultimate Goal",
+                title: "Long-Term Consistency & Scaling",
+                desc: "The final step. Maintain absolute metrics, audit your statistics, build a structured investment fund resume, pass strict institutional evaluations, and secure professional capital backing.",
+                bullets: [
+                    "Building a continuous verified track record.",
+                    "Pass institutional and prop firm evaluations.",
+                    "Transitioning to large-scale portfolio management."
+                ],
+                objective: "Achieving sustainable long-term wealth compounding as a professional manager."
+            }
+        };
+
+        function activateStep(stepNum) {
+            // Update Active Tab Styles
+            document.querySelectorAll('.framework-tab').forEach(tab => {
+                tab.classList.remove('bg-navy-950', 'border-gold', 'text-white');
+                tab.classList.add('bg-white', 'border-slate-200', 'text-navy-900');
+                
+                // Reset title colors inside tab buttons
+                const badge = tab.querySelector('span:first-child');
+                badge.classList.remove('text-gold');
+                badge.classList.add('text-slate-400');
+            });
+
+            const activeTab = document.getElementById('tab-' + stepNum);
+            if (activeTab) {
+                activeTab.classList.add('bg-navy-950', 'border-gold', 'text-white');
+                activeTab.classList.remove('bg-white', 'border-slate-200', 'text-navy-900');
+                
+                const activeBadge = activeTab.querySelector('span:first-child');
+                activeBadge.classList.add('text-gold');
+                activeBadge.classList.remove('text-slate-400');
+            }
+
+            // Update tab panel content elegantly
+            const container = document.getElementById('framework-content-container');
+            const data = frameworkData[stepNum];
+
+            // Bullets list items assembly
+            let bulletHTML = '';
+            data.bullets.forEach(bullet => {
+                bulletHTML += `<li class="flex items-center gap-2.5"><span class="text-gold">✔</span> ${bullet}</li>`;
+            });
+
+            container.innerHTML = `
+                <div class="lg:col-span-7 space-y-6 animate-fadeIn">
+                    <div class="inline-block bg-gold/15 text-gold border border-gold/30 px-3 py-1 rounded text-xs font-semibold tracking-wider uppercase">
+                        ${data.tag}
+                    </div>
+                    <h3 class="font-heading font-extrabold text-2xl lg:text-4xl text-white uppercase tracking-tight">
+                        ${data.title}
+                    </h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        ${data.desc}
+                    </p>
+                    <ul class="space-y-2.5 text-xs text-slate-300 font-medium">
+                        ${bulletHTML}
+                    </ul>
+                </div>
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative p-6 bg-navy-900/60 rounded-2xl border border-slate-800/80 w-full max-w-sm text-center">
+                        <div class="text-6xl mb-4">🎯</div>
+                        <span class="block font-heading font-bold text-xs uppercase tracking-widest text-slate-400 mb-1">Key Objective</span>
+                        <p class="text-slate-300 text-sm font-light">${data.objective}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // SLIDING FAQ ACCORDION TRANSITIONS
+        function toggleFaq(id) {
+            const content = document.getElementById('faq-content-' + id);
+            const icon = document.getElementById('faq-icon-' + id);
+            
+            if (content.style.maxHeight === '0px' || !content.style.maxHeight) {
+                // Open dynamic height content
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = "rotate(180deg)";
+            } else {
+                // Collapse height content
+                content.style.maxHeight = "0px";
+                icon.style.transform = "rotate(0deg)";
+            }
+        }
+
+        // POPUP MODAL CONTROL SYSTEM
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+            
+            // Stop video simulated player on closing
+            const overlay = document.getElementById('modal-video-overlay');
+            const player = document.getElementById('modal-simulated-player');
+            overlay.classList.remove('hidden');
+            player.classList.add('hidden');
+
+            // Reset enrollment modal back to the form view after it closes
+            if (id === 'enroll-modal') {
+                setTimeout(() => {
+                    document.getElementById('enroll-success-state').classList.add('hidden');
+                    document.getElementById('enroll-form-state').classList.remove('hidden');
+                }, 300);
+            }
+        }
+
+        // SIMULATED VIDEO MODAL CONTROLLER
+        const videoOverlay = document.getElementById('modal-video-overlay');
+        const simulatedPlayer = document.getElementById('modal-simulated-player');
+        
+        videoOverlay.addEventListener('click', () => {
+            videoOverlay.classList.add('hidden');
+            simulatedPlayer.classList.remove('hidden');
+            showToast("Playing Volume 0 Lecture Video...", "info");
+        });
+
+        function toggleSimulatedPlayback() {
+            showToast("Lecture video playback paused.", "info");
+        }
+
+        // CUSTOM TOAST NOTIFICATION GENERATOR
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            // Select color based on toast warning types
+            let icon = '✔';
+            let bgBorderClass = 'bg-navy-900 border-gold text-white';
+            
+            if (type === 'error') {
+                icon = '✕';
+                bgBorderClass = 'bg-red-950 border-red-500 text-white';
+            } else if (type === 'info') {
+                icon = 'ℹ';
+                bgBorderClass = 'bg-navy-900 border-royal text-white';
+            }
+
+            toast.className = `${bgBorderClass} border-solid border p-4 rounded-xl flex items-center gap-3 shadow-2xl transition-all duration-300 translate-y-5 opacity-0 text-xs tracking-wide max-w-sm`;
+            toast.innerHTML = `
+                <div class="w-5 h-5 rounded-full flex items-center justify-center font-bold text-navy-950 bg-white">${icon}</div>
+                <div>${message}</div>
+            `;
+
+            container.appendChild(toast);
+            
+            // Trigger animation on browser execution frame
+            setTimeout(() => {
+                toast.classList.remove('translate-y-5', 'opacity-0');
+            }, 50);
+
+            // Close Toast after threshold duration
+            setTimeout(() => {
+                toast.classList.add('translate-y-[-10px]', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3200);
+        }
+
+        // ============================================================
+        // LEAD CAPTURE: ENROLLMENT FORM -> GOOGLE SHEETS
+        // ============================================================
+        // Paste the Web App URL you get after deploying the Google Apps
+        // Script (see setup instructions provided alongside this file).
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxzJJyc8xY1E0tt7w_tNp9Uq5p3XiPgamBWBYhQ2QICliTA-5PITW3d5T1KLI-F29oZ0A/exec";
+
+        document.getElementById('enroll-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const errorMsg = document.getElementById('enroll-error-msg');
+            errorMsg.classList.add('hidden');
+
+            const name = document.getElementById('enroll-name').value.trim();
+            const email = document.getElementById('enroll-email').value.trim();
+            const phone = document.getElementById('enroll-phone').value.trim();
+            const experience = document.getElementById('enroll-experience').value;
+
+            // Basic validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!name || !email || !phone || !experience) {
+                errorMsg.textContent = "Please fill in every field before submitting.";
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+            if (!emailPattern.test(email)) {
+                errorMsg.textContent = "Please enter a valid email address.";
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+            if (phone.replace(/\D/g, '').length < 7) {
+                errorMsg.textContent = "Please enter a valid phone number.";
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            if (GOOGLE_SCRIPT_URL.indexOf('PASTE_YOUR') === 0) {
+                errorMsg.textContent = "Form isn't connected yet — add your Google Apps Script URL in the code.";
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            const submitBtn = document.getElementById('enroll-submit-btn');
+            const submitText = document.getElementById('enroll-submit-text');
+            const originalLabel = submitText.textContent;
+
+            submitBtn.disabled = true;
+            submitText.textContent = "Submitting...";
+
+            const payload = {
+                name: name,
+                email: email,
+                phone: phone,
+                experience: experience,
+                timestamp: new Date().toLocaleString(),
+                source: window.location.href
+            };
+
+            // 'no-cors' is required for a plain Apps Script Web App endpoint.
+            // The response can't be read, so we treat a completed request as success.
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(payload)
+            })
+            .then(function () {
+                document.getElementById('enroll-form-state').classList.add('hidden');
+                document.getElementById('enroll-success-state').classList.remove('hidden');
+                document.getElementById('enroll-form').reset();
+            })
+            .catch(function () {
+                errorMsg.textContent = "Something went wrong. Please try again in a moment.";
+                errorMsg.classList.remove('hidden');
+            })
+            .finally(function () {
+                submitBtn.disabled = false;
+                submitText.textContent = originalLabel;
+            });
+        });
+
+        // STARTUP ROUTINES
+        window.onload = function() {
+            // Live candlestick animations
+            simulateTickers();
+            
+            // Welcome message toast
+            setTimeout(() => {
+                showToast("Welcome to Chettela Forex Academy.", "info");
+            }, 800);
+        };
+    </script>
+</body>
+</html>
